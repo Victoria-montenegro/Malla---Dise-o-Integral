@@ -1,1 +1,92 @@
+:root {
+  --rosa: #f6b6c9;
+  --rosa-claro: #fde7ef;
+  --lila: #d7c8ff;
+  --aprobado: #b7e4c7;
+  --bloqueado: #e0e0e0;
+  --texto: #4b3b5a;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #faf7fc;
+  margin: 0;
+  padding: 20px;
+  color: var(--texto);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#malla {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+
+.anio {
+  background: white;
+  border-radius: 14px;
+  padding: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.08);
+}
+
+.anio h2 {
+  text-align: center;
+  color: #6b4fa3;
+}
+
+.semestre {
+  margin-bottom: 12px;
+}
+
+.semestre h3 {
+  background: var(--lila);
+  padding: 6px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.materia {
+  background: var(--rosa);
+  margin: 6px 0;
+  padding: 8px;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: transform .1s, box-shadow .1s;
+}
+
+.materia:hover {
+  transform: scale(1.02);
+  box-shadow: 0 3px 6px rgba(0,0,0,.12);
+}
+
+.materia.aprobada {
+  background: var(--aprobado);
+  text-decoration: line-through;
+}
+
+.materia.bloqueada {
+  background: var(--bloqueado);
+  cursor: not-allowed;
+  position: relative;
+}
+
+.materia.bloqueada:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 105%;
+  left: 0;
+  background: #555;
+  color: white;
+  padding: 5px 7px;
+  font-size: 11px;
+  border-radius: 6px;
+  white-space: nowrap;
+  z-index: 10;
+}
 
